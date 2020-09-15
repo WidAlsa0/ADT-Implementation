@@ -24,8 +24,8 @@ public class ComplexNumberImpl implements ComplexNumber {
     }
 
     public ComplexNumber multiply(ComplexNumber other) {
-        double a = (this.getReal() * other.getReal());
-        double b = ((this.getReal() * other.getImaginary()) + (other.getReal() * this.getImaginary()) + ((this.getImaginary() * other.getImaginary())));
+        double a = (this.getReal() * other.getReal()) - (this.getImaginary() * other.getImaginary());
+        double b = ((this.getReal() * other.getImaginary()) + (other.getReal() * this.getImaginary()) );
         return new ComplexNumberImpl(a,b);
     }
 
@@ -39,7 +39,10 @@ public class ComplexNumberImpl implements ComplexNumber {
         boolean real_close_enough = (other.getReal() - this.getReal()) < EQUALS_EPSILON;
         boolean imaginary_close_enough = (other.getImaginary() - this.getImaginary()) < EQUALS_EPSILON;
 
-        return (real_close_enough && imaginary_close_enough);
+        if (real_close_enough && imaginary_close_enough) {
+            return true;
+        }
+        return false;
     }
 
 

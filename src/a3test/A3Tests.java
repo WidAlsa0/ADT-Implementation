@@ -63,7 +63,15 @@ public class A3Tests {
     // multiply(create(A,B), C) = ????
     @Test
     public void testMultiply1() {
-        fail("Replace with testing code");
+        double a = 2;
+        double b = 2;
+        ComplexNumber number = new ComplexNumberImpl(2,3);
+        ComplexNumber number2 = new ComplexNumberImpl(a,b);
+        ComplexNumber test1 = number2.multiply(number);
+        ComplexNumber expected = new ComplexNumberImpl(-2, 10);
+        System.out.println(test1.getReal() + "");
+        System.out.println(test1.getImaginary() + "");
+        assertEquals(expected, test1);
     }
 
     // Test axiom:
