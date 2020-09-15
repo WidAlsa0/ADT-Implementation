@@ -36,8 +36,8 @@ public class ComplexNumberImpl implements ComplexNumber {
     }
 
     public boolean equals(ComplexNumber other) {
-        boolean real_close_enough = (other.getReal() - this.getReal()) < EQUALS_EPSILON;
-        boolean imaginary_close_enough = (other.getImaginary() - this.getImaginary()) < EQUALS_EPSILON;
+        boolean real_close_enough = Math.abs(other.getReal() - this.getReal()) < EQUALS_EPSILON;
+        boolean imaginary_close_enough = Math.abs((other.getImaginary() - this.getImaginary())) < EQUALS_EPSILON;
 
         if (real_close_enough && imaginary_close_enough) {
             return true;
